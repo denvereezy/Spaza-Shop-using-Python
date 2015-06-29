@@ -1,0 +1,12 @@
+import spaza
+from spaza import productList
+
+productMap = productList()
+
+print spaza.productList()
+print spaza.mostPopularProduct(productMap)
+print spaza.leastPopularProduct(productMap)
+
+    
+
+

@@ -44,9 +44,14 @@ def leastPopularProduct(things):
     return leastPopular
 
 product = productList()
-productList()
-mostPopularProduct(product)
-leastPopularProduct(product)
+print "PRODUCT LIST"
+print productList()
+print "=========================="
+print "MOST POPULAR PRODUCT"
+print mostPopularProduct(product)
+print "=========================="
+print "LEAST POPULAR PRODUCT"
+print leastPopularProduct(product)
 
 
  
