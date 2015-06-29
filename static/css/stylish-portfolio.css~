@@ -15,9 +15,22 @@ body {
 body {
     font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
-.display{
-      background-color: red;
+
+.container{
+      background-color:red;
+      border: 5px solid #FFFFFF;
+      height:300px;
+      border-radius:35px;
+      margin: 50px;
+      box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3), 
+                  0px 20px 15px 0px rgba(0, 0, 0, 0.6); 
 }
+
+#text-area{
+     margin-right:-20%;
+}
+
+
 #box{
   padding:2%;
   background:rgba(255,255,255,0.5);
@@ -25,7 +38,7 @@ body {
   box-shadow:1px 1px 100px 10px;
   border:8px solid black;
   position:absolute;
-  margin-left:-25%;
+  margin-left:-22%;
   margin-top:-10%;
 
 }
@@ -75,11 +88,6 @@ h1{
     background-color: rgba(255,255,255,0.8);
 }
 
-/* Custom Horizontal Rule */
-
-hr.small {
-    max-width: 100px;
-}
 
 /* Side Menu */
 
@@ -226,7 +234,7 @@ hr.small {
     width: 100%;
     height: 400px;
     color: #fff;
-    background: url(../img/rose.jpeg) no-repeat center center scroll;
+    background: url(../img/card.jpeg) no-repeat center center scroll;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;

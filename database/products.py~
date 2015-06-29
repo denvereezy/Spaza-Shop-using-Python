@@ -1,0 +1,25 @@
+import MySQLdb
+import sys
+
+connection = MySQLdb.connect (host = "", user = "", passwd = "", db = "")
+
+
+cursor = connection.cursor ()
+
+
+cursor.execute ("select, ")
+
+
+data = cursor.fetchall ()
+
+
+#create for loop to print rows
+
+
+cursor.close ()
+
+
+connection.close ()
+
+
+sys.exit()

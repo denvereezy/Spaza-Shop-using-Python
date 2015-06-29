@@ -6,14 +6,17 @@ def productList():
     csv_f = csv.reader(f) 
 
 # create an empty map first...
-    things = {}
+    things = {
+        'product' : [currentItem]
+        'qty' :   int(numberSold)      
+}
     for row in csv_f:
         currentItem = row[2]
         numberSold =  row[3]
     # check if the item is already in the map
         if not things.has_key(currentItem): 
            things[currentItem] = 0
-        things[currentItem] += int(numberSold)
+        #things[currentItem] += int(numberSold)
 
     return things
 
@@ -44,14 +47,9 @@ def leastPopularProduct(things):
     return leastPopular
 
 product = productList()
-print "PRODUCT LIST"
-print productList()
-print "=========================="
-print "MOST POPULAR PRODUCT"
-print mostPopularProduct(product)
-print "=========================="
-print "LEAST POPULAR PRODUCT"
-print leastPopularProduct(product)
+productList()
+mostPopularProduct(product)
+leastPopularProduct(product)
 
 
  
