@@ -1,16 +1,19 @@
 {% extends "layout.html" %}
 {% block body %}
-<table>
-   <tr>
-      <th>Product ID</th>
-      <th>Product Name</th>
-      
-   </tr>
-   {% for entry in entries %}
-   <tr>
-     <td>{{ entry.Id }}</td>
-     <td>{{ entry.Name}}</td>
-     
-   </tr>    
-   {% endfor %}
+
+<table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Amount sold</th>
+        </tr>
+    </thead>
+            <tr>
+                {% for entry in entries %}
+                <td>{{ entry.Name}}</td>
+                <td>{{ entry.Qty }}</td>
+
+            </tr>
+             {% endfor %}
 {% endblock %}
+    </table>

@@ -2,13 +2,9 @@
 {% block body %}
 <table>
    <tr>
-      <th>Qty sold</th>
-      <th>Category Name</th>
-      
+      <th>Products</th>
    </tr>
    {% for entry in entries %}
-   <tr>
-     <td>{{ entry.SUM(Qty) }}</td>
      <td>{{ entry.Name}}</td>
  
    </tr>    

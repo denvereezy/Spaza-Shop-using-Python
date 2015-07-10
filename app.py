@@ -15,12 +15,26 @@ app.config['MYSQL_DB'] = 'spaza_shop'
 def main():
     return render_template('menu.html')
 
-@app.route('/products')
+@app.route('/productList')
 def products():
 	cur = mysql.connection.cursor()
-	cur.execute('''SELECT * from Products''')
-	entries = [dict(Id=row[2],Name=row[1]) for row in cur.fetchall()]
+	cur.execute('''SELECT SUM(Qty) AS TotalQty , Product_Id, Name from Sales s INNER JOIN Products p ON s.Product_Id = p.Id 					GROUP BY Name''')
+	entries = [dict(Name=row[2],Qty=row[0]) for row in cur.fetchall()]
     	return render_template('products.html', entries=entries)
+
+@app.route('/categoryList')
+def categories():
+	cur = mysql.connection.cursor()
+	cur.execute('''SELECT  Categories.Name, sum(Sales.Qty) AS TotalQty from Sales INNER JOIN Products ON Sales.Product_id = Products.Id INNER JOIN Categories ON Products.Category_id = Categories.Id GROUP BY Categories.Name''')
+	entries = [dict(Name=row[0],Qty=row[1]) for row in cur.fetchall()]
+    	return render_template('categories.html', entries=entries)
+
+@app.route('/list')
+def prodList():
+	cur = mysql.connection.cursor()
+	cur.execute('''SELECT Name from Products''')
+	entries = [dict(Name=row[0]) for row in cur.fetchall()]
+    	return render_template('list.html', entries=entries)
 
 if __name__ == '__main__':
 	
