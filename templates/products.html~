@@ -4,13 +4,13 @@
    <tr>
       <th>Product ID</th>
       <th>Product Name</th>
-      
+      <th>Category ID</th>
    </tr>
    {% for entry in entries %}
    <tr>
      <td>{{ entry.Id }}</td>
      <td>{{ entry.Name}}</td>
-     
+     <td>{{ entry.Category_Id }}</td>
    </tr>    
    {% endfor %}
 {% endblock %}

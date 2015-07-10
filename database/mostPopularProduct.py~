@@ -2,7 +2,7 @@ import MySQLdb
 db = MySQLdb.connection(host="localhost",
   user="green_grocer", passwd="password", db="spaza_shop")
 
-db.query(""" SUM(Qty) AS TotalQty, Product_Id, Name from Sales s join Products p ON s.Product_Id = p.Id 					GROUP BY Name ORDER BY SUM(Qty) DESC LIMIT 0,1'""")
+db.query("SUM(Qty) AS TotalQty, Product_Id, Name from Sales s join Products p ON s.Product_Id = p.Id GROUP BY Name ORDER BY SUM(Qty) DESC LIMIT 0,1")
 r = db.store_result()
 
 for row in r.fetch_row(0):

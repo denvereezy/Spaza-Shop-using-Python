@@ -19,7 +19,7 @@ def main():
 def products():
 	cur = mysql.connection.cursor()
 	cur.execute('''SELECT * from Products''')
-	entries = [dict(Id=row[2],Name=row[1]) for row in cur.fetchall()]
+	entries = [dict(Id=row[1],Name=row[2]) for row in cur.fetchall()]
     	return render_template('products.html', entries=entries)
 
 if __name__ == '__main__':

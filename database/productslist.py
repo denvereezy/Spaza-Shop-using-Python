@@ -2,7 +2,7 @@
 
 # import the MySQLdb and sys modules
 import MySQLdb
-import sys
+
 
 # open a database connection
 # be sure to change the host IP address, username, password and database name to match your own
@@ -12,14 +12,14 @@ connection = MySQLdb.connect (host = "localhost", user = "green_grocer", passwd 
 cursor = connection.cursor ()
 
 # execute the SQL query using execute() method.
-cursor.execute ("SELECT  Categories.Name, sum(Sales.Qty) AS TotalQty from Sales INNER JOIN Products ON Sales.Product_id = Products.Id INNER JOIN Categories ON Products.Category_id = Categories.Id GROUP BY Categories.Name")
+cursor.execute ("SELECT SUM(Qty) AS TotalQty , Product_Id, Name from Sales s INNER JOIN Products p ON s.Product_Id = p.Id 					GROUP BY Name")
 
 # fetch all of the rows from the query
 data = cursor.fetchall ()
 
 # print the rows
 for row in data :
- print row[0], row[1]
+ print row[0], row[2]
 
 # close the cursor object
 cursor.close ()
@@ -27,5 +27,4 @@ cursor.close ()
 # close the connection
 connection.close ()
 
-# exit the program
-sys.exit()
+

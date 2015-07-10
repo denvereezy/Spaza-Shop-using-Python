@@ -1,39 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Nelisa Spaza Shop</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="static/css/stylish-portfolio.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-   
-    <!-- Header -->
+{% extends "layout.html" %}
+{% block body %} 
+ <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
            <span id="box"> <h1>Nelisa Spaza Shop</h1></span>
@@ -77,7 +44,7 @@
                                     <strong>Product List</strong>
                                 </h4>
                                 <p>Pruduct list plus the quantity sold.</p>
-                                <a href="#productList" class="btn btn-light">See More</a>
+                                <a href="/products" class="btn btn-light">See More</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -90,7 +57,7 @@
                                     <strong>Most Popular Product</strong>
                                 </h4>
                                 <p>Product that sold the most.</p>
-                                <a href="#mostPopularProduct" class="btn btn-light">See More</a>
+                                <a href="/categories" class="btn btn-light">See More</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -171,51 +138,4 @@
         <!-- /.container -->
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-         
-        </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="static/js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="static/js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-    </script>
-
-</body>
-
-</html>
+{% endblock %}

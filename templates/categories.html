@@ -2,15 +2,15 @@
 {% block body %}
 <table>
    <tr>
-      <th>Product ID</th>
-      <th>Product Name</th>
+      <th>Qty sold</th>
+      <th>Category Name</th>
       
    </tr>
    {% for entry in entries %}
    <tr>
-     <td>{{ entry.Id }}</td>
+     <td>{{ entry.SUM(Qty) }}</td>
      <td>{{ entry.Name}}</td>
-     
+ 
    </tr>    
    {% endfor %}
 {% endblock %}
