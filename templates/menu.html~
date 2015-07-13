@@ -146,14 +146,14 @@
 				<tr>
 				    <th>Product</th>
 				    <th>Amound Sold</th>
-				    <th class="text-center">Action</th>
+				    
 				</tr>
 			    </thead>
 				    <tr>
 					{% for product in products %}
 					<td>{{ product.Name}}</td>
 					<td>{{ product.Qty }}</td>
-					<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+
 				    </tr>
 				    {% endfor %}
 			    </table>
@@ -186,12 +186,11 @@
                 {% for cat in cats %}
                 <td>{{ cat.Name}}</td>
                 <td>{{ cat.Qty }}</td>
-                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
             </tr>
             {% endfor %}
     </table>
                    
-                    <a href="/catList" class="btn btn-dark">Back to top</a>
+                    <a href="#about" class="btn btn-dark">Back to top</a>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -210,17 +209,17 @@
     <thead>
         <tr>
             <th>Category</th>
-            <th class="text-center">Action</th>
+            
         </tr>
     </thead>
             <tr>
                 {% for entry in entries %}
                 <td>{{ entry.Name}}</td>
-                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+                
             </tr>
             {% endfor %}
     </table>          
-                  <a href="/categorySales" class="btn btn-dark">Back to top</a>
+                  <a href="#about" class="btn btn-dark">Back to top</a>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>

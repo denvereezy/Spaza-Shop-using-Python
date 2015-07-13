@@ -19,7 +19,6 @@ def prodList():
 	cur = mysql.connection.cursor()
 	cur.execute('''SELECT Name from Products''')
 	entries = [dict(Name=row[0]) for row in cur.fetchall()]
-	print entries
 
 	cur.execute('''SELECT SUM(Qty) AS TotalQty , Product_Id, Name from Sales s INNER JOIN Products p ON s.Product_Id = p.Id 					GROUP BY Name''')
 	products = [dict(Name=row[2],Qty=row[0]) for row in cur.fetchall()]

@@ -13,7 +13,7 @@ app.config['MYSQL_DB'] = 'my_products'
 
 
 
-"""names of products"""
+
 @app.route('/')
 def prodList():
 	cur = mysql.connection.cursor()
