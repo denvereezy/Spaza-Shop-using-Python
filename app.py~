@@ -9,32 +9,43 @@ app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_PORT'] = 3306
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = '951022'
-app.config['MYSQL_DB'] = 'spaza_shop'
+app.config['MYSQL_DB'] = 'my_products'
 
+
+
+"""names of products"""
 @app.route('/')
-def main():
-    return render_template('menu.html')
+def prodList():
+	cur = mysql.connection.cursor()
+	cur.execute('''SELECT Name from Products''')
+	entries = [dict(Name=row[0]) for row in cur.fetchall()]
+    	return render_template('menu.html', entries=entries)
 
+
+"""product list with qty sold"""
 @app.route('/productList')
 def products():
 	cur = mysql.connection.cursor()
 	cur.execute('''SELECT SUM(Qty) AS TotalQty , Product_Id, Name from Sales s INNER JOIN Products p ON s.Product_Id = p.Id 					GROUP BY Name''')
-	entries = [dict(Name=row[2],Qty=row[0]) for row in cur.fetchall()]
-    	return render_template('products.html', entries=entries)
+	products = [dict(Name=row[2],Qty=row[0]) for row in cur.fetchall()]
+    	return render_template('menu.html', products=products)
 
-@app.route('/categoryList')
+"""category list with qty sold"""
+@app.route('/categorySales')
 def categories():
 	cur = mysql.connection.cursor()
 	cur.execute('''SELECT  Categories.Name, sum(Sales.Qty) AS TotalQty from Sales INNER JOIN Products ON Sales.Product_id = Products.Id INNER JOIN Categories ON Products.Category_id = Categories.Id GROUP BY Categories.Name''')
 	entries = [dict(Name=row[0],Qty=row[1]) for row in cur.fetchall()]
     	return render_template('categories.html', entries=entries)
 
-@app.route('/products')
-def prodList():
+"""names of categories"""
+@app.route('/catList')
+def catList():
 	cur = mysql.connection.cursor()
-	cur.execute('''SELECT Name from Products''')
+	cur.execute('''SELECT Name from Categories''')
 	entries = [dict(Name=row[0]) for row in cur.fetchall()]
-    	return render_template('list.html', entries=entries)
+    	return render_template('catList.html', entries=entries)
+
 
 if __name__ == '__main__':
 	

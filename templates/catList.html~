@@ -5,16 +5,20 @@
     <thead>
         <tr>
             <th>Category</th>
-            <th>Amound Sold</th>
             <th class="text-center">Action</th>
         </tr>
     </thead>
             <tr>
                 {% for entry in entries %}
                 <td>{{ entry.Name}}</td>
-                <td>{{ entry.Qty }}</td>
                 <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
             </tr>
             {% endfor %}
     </table>
+<h1>Add a Category</h1>
+	<form action="categories/add" method="POST">
+		Description: <input type="text" name="Name" required>	
+		<input type="submit">
+	</form>
+
 {% endblock %}

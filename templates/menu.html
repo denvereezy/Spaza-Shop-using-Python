@@ -37,13 +37,14 @@
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
-                                <i class="fa fa-list-alt fa-stack-2x"></i>
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-list-alt fa-stack-1x text-primary"></i>
                                 <i class="display"></i>
                             </span>
                                 <h4>
                                     <strong>Product List</strong>
                                 </h4>
-                                <p>Pruduct list plus the quantity sold.</p>
+                                <p>List of products in stock.</p>
                                 <a href="#productList" class="btn btn-light">See More</a>
                             </div>
                         </div>
@@ -54,10 +55,23 @@
                                 <i class="fa fa-bar-chart fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Most Popular Product</strong>
+                                    <strong>Products Sold</strong>
                                 </h4>
-                                <p>Product that sold the most.</p>
-                                <a href="/categories" class="btn btn-light">See More</a>
+                                <p>Product list plus the quantity sold.</p>
+                                <a href="#productsSold" class="btn btn-light">See More</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="service-item">
+                                <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-list-alt fa-stack-1x text-primary"></i>
+                            </span>
+                                <h4>
+                                    <strong>Category List</strong>
+                                </h4>
+                                <p>List of product categories.</p>
+                                <a href="#categoryList" class="btn btn-light">See More</a>
                             </div>
                         </div>
                         <div class="col-md-3 col-sm-6">
@@ -67,10 +81,10 @@
                                 <i class="fa fa-bar-chart fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Least Popular Product</strong>
+                                    <strong>Categories Sold</strong>
                                 </h4>
-                                <p>Product that sold the least.</p>
-                                <a href="#leastPopularProduct" class="btn btn-light">See More</a>
+                                <p>Category list plus the quantity sold.</p>
+                                <a href="#categorySales" class="btn btn-light">See More</a>
                             </div>
                         </div>
                     </div>
@@ -85,7 +99,7 @@
     </section>
 
     <!-- Callout -->
-    <aside class="callout">
+    <aside class="random">
     </aside>
 
     
@@ -94,10 +108,28 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h2>Product List</h2>
+                      <div container="class theme-showcase" role="main">
 
+                       <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+            <tr>
+                {% for entry in entries %}
+                <td>{{ entry.Name}}</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+            </tr>
+            {% endfor %}
+    </table>
+
+
+</div>
                      
                    
-                    <a href="/productList" class="btn btn-dark">Back to top</a>
+                    <a href="#about" class="btn btn-dark">Back to top</a>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -108,13 +140,30 @@
 
 <aside class="popular">
     </aside>
-  <section id="mostPopularProduct" class="portfolio">
+  <section id="productsSold" class="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Most Popular Product</h2>
-                   
-                    <a href="/categoryList" class="btn btn-dark">Back to top</a>
+                    <h2>Sales per product</h2>
+<div container="class theme-showcase" role="main">
+                     <table class="table table-striped custab">
+			    <thead>
+				<tr>
+				    <th>Product</th>
+				    <th>Amound Sold</th>
+				    <th class="text-center">Action</th>
+				</tr>
+			    </thead>
+				    <tr>
+					{% for product in products %}
+					<td>{{ entry.Name}}</td>
+					<td>{{ entry.Qty }}</td>
+					<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+				    </tr>
+				    {% endfor %}
+			    </table>
+                   </div>
+                    <a href="#about" class="btn btn-dark">Back to top</a>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -122,16 +171,17 @@
         </div>
         <!-- /.container -->
     </section>
+
 <aside class="least">
     </aside>
 
-  <section id="leastPopularProduct" class="portfolio">
+  <section id="categoryList" class="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Least Popular Product</h2>
+                    <h2>Category List</h2>
                    
-                    <a href="/list" class="btn btn-dark">Back to top</a>
+                    <a href="/catList" class="btn btn-dark">Back to top</a>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>
@@ -139,5 +189,22 @@
         </div>
         <!-- /.container -->
     </section>
-
+<aside class="category">
+    </aside>
+<section id="categorySales" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Sales per category</h2>
+                   
+                    <a href="/categorySales" class="btn btn-dark">Back to top</a>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+<aside class="callout">
+    </aside>
 {% endblock %}
