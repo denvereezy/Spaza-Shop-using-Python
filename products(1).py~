@@ -1,0 +1,26 @@
+import MySQLdb
+import sys
+
+db = MySQLdb.connect (host = "localhost", user = "root", passwd = "951022", db = "spaza_shop")
+
+
+cursor = db.cursor ()
+
+
+cursor.execute ("select * from Products")
+
+
+data = cursor.fetchall ()
+
+
+#create for loop to print rows
+for row in data:
+    print row[1]
+
+cursor.close ()
+
+
+db.close ()
+
+
+sys.exit()

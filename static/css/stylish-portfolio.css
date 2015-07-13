@@ -21,6 +21,15 @@ body {
 #productList{
     background-color:#00FF00;
 }
+#productsSold{
+   background-color:#00FF00;
+}
+#categoryList{
+  background-color:#00FF00;
+}
+#categorySales{
+  background-color:#00FF00;
+}
 .container{
       background-color:red;
       border: 5px solid #FFFFFF;
