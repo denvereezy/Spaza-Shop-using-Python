@@ -178,14 +178,13 @@
     <thead>
         <tr>
             <th>Category</th>
-            <th>Amound Sold</th>
             
         </tr>
     </thead>
             <tr>
-                {% for cat in cats %}
-                <td>{{ cat.Name}}</td>
-                <td>{{ cat.Qty }}</td>
+                {% for category in categories %}
+                <td>{{ category.Name}}</td>
+                
             </tr>
             {% endfor %}
     </table>
@@ -209,12 +208,14 @@
     <thead>
         <tr>
             <th>Category</th>
+            <th>Amount sold</th>
             
         </tr>
     </thead>
             <tr>
                 {% for cat in cats %}
                 <td>{{ cat.Name}}</td>
+                <td>{{ cat.Qty }}</td>
                 
             </tr>
             {% endfor %}

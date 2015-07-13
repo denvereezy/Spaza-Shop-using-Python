@@ -183,9 +183,9 @@
         </tr>
     </thead>
             <tr>
-                {% for cat in cats %}
-                <td>{{ cat.Name}}</td>
-                <td>{{ cat.Qty }}</td>
+                {% for category in categories %}
+                <td>{{ category.Name}}</td>
+                
             </tr>
             {% endfor %}
     </table>
@@ -200,7 +200,7 @@
     </section>
 <aside class="category">
     </aside>
-<section id="categoryList" class="portfolio">
+<section id="categorySales" class="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
@@ -209,12 +209,14 @@
     <thead>
         <tr>
             <th>Category</th>
+            <th>Amount sold</th>
             
         </tr>
     </thead>
             <tr>
                 {% for cat in cats %}
                 <td>{{ cat.Name}}</td>
+                <td>{{ cat.Qty }}</td>
                 
             </tr>
             {% endfor %}
