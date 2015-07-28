@@ -8,8 +8,10 @@
 
 html,
 body {
+   
     width: 100%;
     height: 100%;
+
 }
 #main{
      overflow:hidden; 
@@ -27,6 +29,9 @@ body {
 #categoryList{
   background-color:#00FF00;
 }
+#categorySales{
+  background-color:#00FF00;
+}
 .container{
       background-color:red;
       border: 5px solid #FFFFFF;
@@ -35,6 +40,29 @@ body {
       width:auto;
       box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3), 
                   0px 20px 15px 0px rgba(0, 0, 0, 0.6); 
+      -webkit-animation:lightup 3s alternate infinite;
+	-webkit-animation-play-state:running;
+	-webkit-animation-delay:0.6s;
+	-moz-animation:lightup 3s alternate infinite;
+	-moz-animation-play-state:running;
+	-moz-animation-delay:0.3s;
+}
+
+#add-products{
+      border-radius:45px;
+      box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3), 
+                  0px 20px 15px 0px rgba(0, 0, 0, 0.6); 
+      background-color:grey;
+      margin-bottom:40px;
+}
+
+#product_sales{
+      border-radius:45px;
+      box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3), 
+                  0px 20px 15px 0px rgba(0, 0, 0, 0.6); 
+      background-color:grey;
+      margin-bottom:40px;
+      
 }
 
 #text-area{
@@ -287,7 +315,6 @@ table, td {
     width:90%;
     font-family:Arial;
     font-size:25px;
-    
 }
 /* Portfolio */
 

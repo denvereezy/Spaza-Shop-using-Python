@@ -108,18 +108,29 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h2>Product List</h2>
-
-                    <table class="table table-striped custab">
+                    <div id="add-products">
+	           <h1 id="prodHeading">Add a product</h1>
+	         <form action="/products/add" method="POST">
+		      Name: <input type="text" name="Product_Name" required>
+                       <select name="Category_Id">
+    				{% for category in categories %}
+      		                <option value = "{{category.Id}}">{{ category.Name}}</option>
+    				{% endfor %}
+  			</select>	
+		<input type="submit">
+	       </form>
+              </div>
+                    <table align="center" class="table table-striped custab">
                      <thead>
                       <tr>
-                       <th>Product</th>
-                       <!--<th class="text-center">Action</th>-->
+                       <th>Product</th> 
+                       <th class="text-center">Action</th>
                       </tr>
                   </thead>
             <tr>
                 {% for entry in entries %}
-                <td>{{ entry.Name}}</td>
-                <!--<td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>-->
+                <td>{{ entry.Name}}</td> 
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="/delete/{{entry.Id}}" method=post value="{{ entry.Name }}"name=delete_product" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
            </tr>
             {% endfor %}
                     </table>
@@ -141,11 +152,27 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h2>Sales per product</h2>
-                     <table class="table table-striped custab">
+                    <div id="product_sales">
+	           <h1 id="prodHeading">Add a sale</h1>
+	         <form action="/sales/add" method="POST">
+		      <select name="Id">
+    				{% for entry in entries %}
+      					<option value = "{{entry.Id}}">{{ entry.Name}}</option>
+    				{% endfor %}
+  			</select>
+                      Qty: <input type="number" name="Qty" required>
+                      Price: <input type="number" name="Sales_price" required>
+                      Date: <input type="date" name="Sales_date" placeholder="yyyy-mm-dd" required/>
+		<input type="submit">
+	       </form>
+              </div>
+                    
+                     <table align="center" class="table table-striped custab">
 			    <thead>
 				<tr>
 				    <th>Product</th>
 				    <th>Amound Sold</th>
+                                    <th>Action</th>
 				    
 				</tr>
 			    </thead>
@@ -153,7 +180,7 @@
 					{% for product in products %}
 					<td>{{ product.Name}}</td>
 					<td>{{ product.Qty }}</td>
-
+                                        <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
 				    </tr>
 				    {% endfor %}
 			    </table>
@@ -174,18 +201,24 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h2>Category List</h2>
-                     <table class="table table-striped custab">
+                     <div id="add-products">
+	           <h1 id="prodHeading">Add a category</h1>
+	         <form action="/categories/add" method="POST">
+		      Name: <input type="text" name="Name" required>	
+		<input type="submit">
+	       </form>
+              </div>
+                     <table align="center" class="table table-striped custab">
     <thead>
         <tr>
             <th>Category</th>
-            <th>Amound Sold</th>
-            
+            <th>Action</th>
         </tr>
     </thead>
             <tr>
                 {% for category in categories %}
                 <td>{{ category.Name}}</td>
-                
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="/delete/{{category.Id}}" method=post value="{{ Name }}" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
             </tr>
             {% endfor %}
     </table>
@@ -205,19 +238,19 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h2>Sales per category</h2>
-                    <table class="table table-striped custab">
+                    <table align="center" class="table table-striped custab">
     <thead>
         <tr>
             <th>Category</th>
             <th>Amount sold</th>
-            
+            <th>Action</th>
         </tr>
     </thead>
             <tr>
                 {% for cat in cats %}
                 <td>{{ cat.Name}}</td>
                 <td>{{ cat.Qty }}</td>
-                
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
             </tr>
             {% endfor %}
     </table>          
